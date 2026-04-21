@@ -1,18 +1,38 @@
 Package: VARcheck
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Visual Diagnostic Checks for Vector Autoregressive Models
 Version: 0.1.0
 Authors@R: c(
     person(
-      "Jane", "Doe",
-      email = "jane@example.com",
-      role = c("aut", "cre")
+      "Björn S.", "Siepe",
+      email = "bjoernsiepe+software@gmail.com",
+      role = c("aut", "cre", "cph"),
+      comment = c(ORCID = "0000-0002-9558-4648")
+    ),
+    person(
+        "Jonas M.B.", "Haslbeck",
+        email = "jonashaslbeck@protonmail.com",
+        role = c("aut"),
+        comment = c(ORCID = "0000-0001-9096-7837")
     )
   )
-Description: More about what it does (maybe more than one line).
-    Continuation lines should be indented.
-License: What license is it under?
+Description: Provides model-agnostic visual diagnostics for vector
+    autoregressive (VAR) models. Given empirical data, model predictions,
+    residuals, and optionally simulated data, the package assembles a
+    multi-panel diagnostic grid: empirical vs. predicted time series, residual
+    inspection, residuals vs. predictions scatter, and posterior predictive
+    checks via simulated trajectories. Follows the approach described in
+    Haslbeck et al. (2024) <doi:10.31234/osf.io/k6uz4_v2>.
+License: GPL (>= 3)
 Encoding: UTF-8
-LazyData: true
 URL: https://github.com/bsiepe/VARcheck
 BugReports: https://github.com/bsiepe/VARcheck/issues
+Imports:
+    ggplot2 (>= 3.4.0),
+    patchwork,
+    stats,
+    utils
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+RoxygenNote: 7.3.3

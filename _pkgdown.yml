@@ -1,0 +1,20 @@
+url: https://bsiepe.github.io/VARcheck
+
+template:
+  bootstrap: 5
+
+reference:
+  - title: "Data"
+    desc: "Construct the input data object."
+    contents:
+      - new_var_data
+
+  - title: "Plotting"
+    desc: "Main diagnostic plot function."
+    contents:
+      - plot_var_check
+
+  - title: "Theme"
+    desc: "Default ggplot2 theme."
+    contents:
+      - theme_varcheck
