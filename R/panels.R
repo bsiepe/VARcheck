@@ -4,7 +4,11 @@
 
 .panel_data_line <- function(df, colors, base_theme, ylim, show_legend) {
   r2 <- 1 - stats::var(df$res, na.rm = TRUE) / stats::var(df$emp, na.rm = TRUE)
-  r2_label <- paste0("R\u00b2 = ", round(r2, 2))
+  rmse <- sqrt(mean(df$res^2, na.rm = TRUE))
+  label <- paste0(
+    "R\u00b2 = ", round(r2, 2),
+    "\nRMSE = ", round(rmse, 2)
+  )
 
   ggplot2::ggplot(df, ggplot2::aes(time, emp)) +
     ggplot2::geom_line(
@@ -17,9 +21,9 @@
     ) +
     ggplot2::annotate(
       "text",
-      x = -Inf, y = Inf,
-      hjust = -0.1, vjust = 1.5,
-      label = r2_label,
+      x = Inf, y = -Inf,
+      hjust = 1.1, vjust = -0.3,
+      label = label,
       size = 2.5
     ) +
     ggplot2::coord_cartesian(ylim = ylim) +
@@ -29,8 +33,10 @@
         "Predictions" = colors$predicted
       )
     ) +
+    ggplot2::labs(x = "Time") +
     base_theme +
     ggplot2::theme(
+      axis.title.x = ggplot2::element_text(),
       legend.position = if (show_legend) c(0.3, 0.9) else "none"
     )
 }
@@ -80,19 +86,28 @@
       label = ar_label,
       size = 2.5
     ) +
-    base_theme
+    ggplot2::labs(x = "Time") +
+    base_theme +
+    ggplot2::theme(axis.title.x = ggplot2::element_text())
 }
 
 .panel_scatter <- function(df, base_theme, xlim, ylim) {
   ggplot2::ggplot(df, ggplot2::aes(x = res, y = pred)) +
     ggplot2::geom_point(alpha = 0.4, size = 0.8) +
     ggplot2::coord_cartesian(xlim = xlim, ylim = ylim) +
-    base_theme
+    ggplot2::labs(x = "Residuals", y = "Predictions") +
+    base_theme +
+    ggplot2::theme(
+      axis.title.x = ggplot2::element_text(),
+      axis.title.y = ggplot2::element_text()
+    )
 }
 
 .panel_sim_line <- function(df, base_theme, ylim) {
   ggplot2::ggplot(df, ggplot2::aes(time, sim)) +
     ggplot2::geom_line(linewidth = 0.35) +
     ggplot2::coord_cartesian(ylim = ylim) +
-    base_theme
+    ggplot2::labs(x = "Time") +
+    base_theme +
+    ggplot2::theme(axis.title.x = ggplot2::element_text())
 }
