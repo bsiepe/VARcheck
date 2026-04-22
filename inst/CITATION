@@ -1,0 +1,17 @@
+bibentry(
+  bibtype = "Article",
+  title = "Model Checking for Vector Autoregressive Models",
+  author = c(
+    person("Jonas M. B.", "Haslbeck"),
+    person("Joran", "Jongerling"),
+    person("Björn S.", "Siepe"),
+    person("Sacha", "Epskamp"),
+    person("Lourens", "Waldorp")
+  ),
+  journal = "PsyArXiv",
+  year = "2026",
+  volume = NA,
+  number = NA,
+  pages = NA,
+  doi = "10.31234/osf.io/k6uz4"
+)
