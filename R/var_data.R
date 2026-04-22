@@ -78,10 +78,10 @@
 #'
 #' @examples
 #' set.seed(1)
-#' emp <- matrix(rnorm(200), nrow = 100, ncol = 2)
-#' pred <- emp + matrix(rnorm(200, sd = 0.3), 100, 2)
+#' emp <- matrix(rnorm(75), nrow = 100, ncol = 2)
+#' pred <- emp + matrix(rnorm(75, sd = 0.3), 100, 2)
 #' res <- emp - pred
-#' sim <- matrix(rnorm(200), 100, 2)
+#' sim <- matrix(rnorm(75), 100, 2)
 #' vd <- new_var_data(emp, pred, res, sim, var_names = c("Mood", "Energy"))
 new_var_data <- function(
     empirical,
@@ -140,7 +140,7 @@ print.var_data <- function(x, ...) {
   cat("<var_data>\n")
   cat("  Subjects  :", x$n_subjects, "\n")
   cat("  Variables :", x$n_vars, "(", paste(x$var_names, collapse = ", "), ")\n")
-  cat("  Time pts  :", tp_str, "\n")
+  cat("  Timepoints  :", tp_str, "\n")
   cat("  Components:", paste(comps, collapse = ", "), "\n")
   invisible(x)
 }

@@ -69,10 +69,10 @@
 #'
 #' @examples
 #' set.seed(1)
-#' emp <- matrix(rnorm(300), nrow = 100, ncol = 3)
-#' pred <- emp + matrix(rnorm(300, sd = 0.3), 100, 3)
+#' emp <- matrix(rnorm(75), nrow = 100, ncol = 3)
+#' pred <- emp + matrix(rnorm(75, sd = 0.3), 100, 3)
 #' res <- emp - pred
-#' sim <- matrix(rnorm(300), 100, 3)
+#' sim <- matrix(rnorm(75), 100, 3)
 #' vd <- new_var_data(emp, pred, res, sim, var_names = c("X1", "X2", "X3"))
 #' plot_var_check(vd)
 plot_var_check <- function(
@@ -160,7 +160,7 @@ plot_var_check <- function(
   # --- Build header row ---
   # The header row has one label per column group. Panels with a histogram
   # sub-panel (data, residuals, simulated) also get a trailing spacer so the
-  # label spans only the main plot, not the histogram.
+  # label spans only the main plot, not the histogram
   header_plots <- list(patchwork::plot_spacer()) # placeholder for row-label column
   for (p in panels) {
     header_plots <- c(header_plots, list(.label_plot(.col_labels[[p]])))
