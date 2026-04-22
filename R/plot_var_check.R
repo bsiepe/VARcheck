@@ -69,12 +69,14 @@
 #'
 #' @examples
 #' set.seed(1)
-#' emp <- matrix(rnorm(75), nrow = 100, ncol = 3)
-#' pred <- emp + matrix(rnorm(75, sd = 0.3), 100, 3)
+#' emp <- matrix(rnorm(300), nrow = 100, ncol = 3)
+#' pred <- emp + matrix(rnorm(300, sd = 0.3), 100, 3)
 #' res <- emp - pred
-#' sim <- matrix(rnorm(75), 100, 3)
+#' sim <- matrix(rnorm(300), 100, 3)
 #' vd <- new_var_data(emp, pred, res, sim, var_names = c("X1", "X2", "X3"))
+#' \donttest{
 #' plot_var_check(vd)
+#' }
 plot_var_check <- function(
     data,
     subject = 1,

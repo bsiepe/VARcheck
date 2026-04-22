@@ -64,6 +64,36 @@ test_that("mismatched subject count in simulated errors", {
   )
 })
 
+test_that("non-matrix non-list input to empirical errors", {
+  expect_error(
+    new_var_data(as.data.frame(rmat()), rmat(), rmat()),
+    "numeric matrix"
+  )
+})
+
+test_that("subject count mismatch in predicted errors", {
+  expect_error(
+    new_var_data(
+      empirical = list(rmat(), rmat()),
+      predicted = list(rmat()),         # 1 subject vs 2
+      residuals = list(rmat(), rmat())
+    ),
+    "predicted"
+  )
+})
+
+test_that("dimension mismatch within simulated subjects errors", {
+  expect_error(
+    new_var_data(
+      empirical = list(rmat(), rmat()),
+      predicted = list(rmat(), rmat()),
+      residuals = list(rmat(), rmat()),
+      simulated = list(rmat(), rmat(p = 3))  # subject 2 wrong columns
+    ),
+    "simulated"
+  )
+})
+
 test_that("print method outputs var_data header", {
   vd <- new_var_data(rmat(), rmat(), rmat(), var_names = c("X", "Y"))
   expect_output(print(vd), "<var_data>")

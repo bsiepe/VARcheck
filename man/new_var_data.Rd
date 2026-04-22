@@ -45,9 +45,9 @@ coerced to a length-1 list automatically.
 }
 \examples{
 set.seed(1)
-emp <- matrix(rnorm(200), nrow = 100, ncol = 2)
-pred <- emp + matrix(rnorm(200, sd = 0.3), 100, 2)
+emp <- matrix(rnorm(75), nrow = 100, ncol = 2)
+pred <- emp + matrix(rnorm(75, sd = 0.3), 100, 2)
 res <- emp - pred
-sim <- matrix(rnorm(200), 100, 2)
+sim <- matrix(rnorm(75), 100, 2)
 vd <- new_var_data(emp, pred, res, sim, var_names = c("Mood", "Energy"))
 }
