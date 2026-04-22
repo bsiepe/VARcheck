@@ -142,6 +142,16 @@ plot_var_check <- function(
     NULL
   }
 
+  # Inform once if NAs are present across any of the plotted matrices
+  all_vals <- c(emp_mat, pred_mat, res_mat, sim_mat)
+  n_na <- sum(is.na(all_vals))
+  if (n_na > 0) {
+    message(
+      n_na, " NA value(s) detected across the plotted matrices. ",
+      "Missing timepoints are excluded from all panels."
+    )
+  }
+
   # Merge colors with defaults
   colors <- utils::modifyList(.default_colors(), colors)
 

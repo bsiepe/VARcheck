@@ -13,11 +13,11 @@
   ggplot2::ggplot(df, ggplot2::aes(time, emp)) +
     ggplot2::geom_line(
       ggplot2::aes(color = "Empirical"),
-      linewidth = 0.35
+      linewidth = 0.35, na.rm = TRUE
     ) +
     ggplot2::geom_line(
       ggplot2::aes(y = pred, color = "Predictions"),
-      linewidth = 0.35
+      linewidth = 0.35, na.rm = TRUE
     ) +
     ggplot2::annotate(
       "text",
@@ -52,7 +52,8 @@
     ggplot2::geom_histogram(
       ggplot2::aes(y = ggplot2::after_stat(density)),
       bins = 20,
-      fill = "grey50"
+      fill = "grey50",
+      na.rm = TRUE
     ) +
     ggplot2::coord_flip(xlim = xlim) +
     ggplot2::stat_function(
@@ -77,7 +78,7 @@
   ar_label <- paste0("AR(1) = ", ar1, " [", ci[1], ", ", ci[2], "]")
 
   ggplot2::ggplot(df, ggplot2::aes(time, res)) +
-    ggplot2::geom_line(linewidth = 0.35) +
+    ggplot2::geom_line(linewidth = 0.35, na.rm = TRUE) +
     ggplot2::coord_cartesian(ylim = ylim) +
     ggplot2::annotate(
       "text",
@@ -93,7 +94,7 @@
 
 .panel_scatter <- function(df, base_theme, xlim, ylim) {
   ggplot2::ggplot(df, ggplot2::aes(x = res, y = pred)) +
-    ggplot2::geom_point(alpha = 0.4, size = 0.8) +
+    ggplot2::geom_point(alpha = 0.4, size = 0.8, na.rm = TRUE) +
     ggplot2::coord_cartesian(xlim = xlim, ylim = ylim) +
     ggplot2::labs(x = "Residuals", y = "Predictions") +
     base_theme +
@@ -105,7 +106,7 @@
 
 .panel_sim_line <- function(df, base_theme, ylim) {
   ggplot2::ggplot(df, ggplot2::aes(time, sim)) +
-    ggplot2::geom_line(linewidth = 0.35) +
+    ggplot2::geom_line(linewidth = 0.35, na.rm = TRUE) +
     ggplot2::coord_cartesian(ylim = ylim) +
     ggplot2::labs(x = "Time") +
     base_theme +
