@@ -6,6 +6,8 @@
 #'
 #' @return A `ggplot2` theme object.
 #' @export
+#' @examples
+#' theme_varcheck()
 theme_varcheck <- function() {
   ggplot2::theme_minimal() +
     ggplot2::theme(

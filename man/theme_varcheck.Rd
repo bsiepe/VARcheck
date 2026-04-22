@@ -14,3 +14,6 @@ A minimal theme used as the default style for all VARcheck plots.
 Pass a `ggplot2::theme()` object to the `theme` argument of
 [plot_var_check()] to override individual elements on top of this base.
 }
+\examples{
+theme_varcheck()
+}

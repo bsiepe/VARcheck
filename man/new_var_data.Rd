@@ -2,6 +2,7 @@
 % Please edit documentation in R/var_data.R
 \name{new_var_data}
 \alias{new_var_data}
+\alias{print.var_data}
 \title{Create a VAR data object}
 \usage{
 new_var_data(
@@ -11,6 +12,8 @@ new_var_data(
   simulated = NULL,
   var_names = NULL
 )
+
+\method{print}{var_data}(x, ...)
 }
 \arguments{
 \item{empirical}{Numeric matrix or list of matrices. Observed values.}
@@ -26,6 +29,10 @@ simulated from the fitted model. Required only when plotting the
 
 \item{var_names}{Optional character vector of length `p` with variable
 names used as plot labels. Defaults to `"V1"`, `"V2"`, etc.}
+
+\item{x}{A `var_data` object.}
+
+\item{...}{Not used; present for S3 method compatibility.}
 }
 \value{
 An object of class `var_data`.

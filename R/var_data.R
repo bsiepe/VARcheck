@@ -123,6 +123,9 @@ new_var_data <- function(
   out
 }
 
+#' @rdname new_var_data
+#' @param x A `var_data` object.
+#' @param ... Not used; present for S3 method compatibility.
 #' @export
 print.var_data <- function(x, ...) {
   n_tp <- vapply(x$empirical, nrow, integer(1))
