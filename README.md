@@ -1,0 +1,87 @@
+# VARcheck
+
+VARcheck produces diagnostic grids for vector autoregressive (VAR) models. Given your model's empirical data, predictions, and residuals, it assembles a multi-panel figure that makes the quality of the fit visible.
+
+The package is model-agnostic: it works with any VAR implementation (mlVAR, vars, DSEM, custom code) as long as you can supply a matrix of empirical values, a matrix of predictions, and a matrix of residuals.
+
+## Installation
+
+```r
+# install development version from GitHub
+# install.packages("remotes")
+remotes::install_github("bsiepe/VARcheck")
+
+# install from CRAN
+install.packages("VARcheck")
+```
+
+## Usage
+
+Wrap your data in a `var_data` object, then call `plot_var_check()`. We provide a longer instruction in the package vignette, but the basic workflow looks like this:
+
+```r
+library(VARcheck)
+
+vd <- new_var_data(
+  empirical  = emp,     # T × p matrix of observed values
+  predicted  = pred,    # T × p matrix of model predictions
+  residuals  = res,     # T × p matrix of residuals
+  simulated  = sim,     # T × p matrix of posterior-predictive simulations (optional)
+  var_names  = c("Mood", "Energy", "Fatigue", "Anxiety")
+)
+
+plot_var_check(vd)
+```
+
+Each row of the output corresponds to one variable and contains four column groups:
+
+| Column | Content |
+|--------|---------|
+| Empirical & Predicted | Time series of observed vs. predicted values, annotated with R² and RMSE |
+| Residuals | Residuals over time, annotated with AR(1) coefficient and 95% CI |
+| Residuals vs. Predicted | Scatter of residuals against predictions |
+| Simulated | Time series simulated from the fitted model |
+
+Marginal histograms with a Gaussian overlay appear next to each time-series panel.
+
+## Options
+
+**Select variables or panels**
+
+```r
+# Show only two variables
+plot_var_check(vd, vars = c("Mood", "Energy"))
+
+# Drop the simulated column
+plot_var_check(vd, panels = c("data", "residuals", "scatter"))
+```
+
+**Multiple subjects**
+
+Pass a list of matrices (one per subject) to `new_var_data()`. Use the `subject` argument to select which one to plot.
+
+```r
+vd_multi <- new_var_data(
+  empirical = list(emp_s1, emp_s2, emp_s3),
+  predicted = list(pred_s1, pred_s2, pred_s3),
+  residuals = list(res_s1, res_s2, res_s3)
+)
+
+plot_var_check(vd_multi, subject = 2)
+```
+
+**Colours and theme**
+
+```r
+# Change line colours (partial override merges with defaults)
+plot_var_check(vd, colors = list(predicted = "steelblue"))
+
+# Override any theme element
+plot_var_check(vd, theme = ggplot2::theme(text = ggplot2::element_text(size = 9)))
+```
+
+The default theme is `theme_varcheck()`, which is a minimal ggplot2 theme you can use on its own.
+
+## Reference
+
+Haslbeck, J. M. B. et al. (2026). *Model Checking for Vector Autoregressive Models* <https://doi.org/10.31234/osf.io/k6uz4_v2>
