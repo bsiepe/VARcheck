@@ -9,15 +9,23 @@ The package is model-agnostic: it works with any VAR implementation
 (mlVAR, vars, DSEM, custom code) as long as you can supply a matrix of
 empirical values, a matrix of predictions, and a matrix of residuals.
 
+For more information on how to use the package, see the extended
+documentation on the [package
+website](https://bsiepe.github.io/VARcheck/).
+
 ## Installation
 
-``` r
-# install development version from GitHub
-# install.packages("remotes")
-remotes::install_github("bsiepe/VARcheck")
+Install the released version from CRAN:
 
-# install from CRAN
+``` r
 install.packages("VARcheck")
+```
+
+Or install the development version from GitHub:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("bsiepe/VARcheck")
 ```
 
 ## Usage
