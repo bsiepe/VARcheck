@@ -1,20 +1,35 @@
-url: https://bsiepe.github.io/VARcheck
+url: https://bsiepe.github.io/VARcheck/
 
 template:
   bootstrap: 5
 
+home:
+  title: VARcheck
+  description: Diagnostic plots for VAR models
+
+navbar:
+  structure:
+    left: [intro, reference, articles]
+    right: [github]
+
+articles:
+- title: ~
+  navbar: ~
+  contents:
+  - getting-started
+
 reference:
-  - title: "Data"
-    desc: "Construct the input data object."
-    contents:
-      - new_var_data
+- title: Data
+  desc: Construct the input data object.
+  contents:
+  - new_var_data
 
-  - title: "Plotting"
-    desc: "Main diagnostic plot function."
-    contents:
-      - plot_var_check
+- title: Plotting
+  desc: Main diagnostic plot function.
+  contents:
+  - plot_var_check
 
-  - title: "Theme"
-    desc: "Default ggplot2 theme."
-    contents:
-      - theme_varcheck
+- title: Theme
+  desc: Default ggplot2 theme (can be used independently).
+  contents:
+  - theme_varcheck
