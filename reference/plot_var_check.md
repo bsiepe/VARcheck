@@ -78,5 +78,8 @@ pred <- emp + matrix(rnorm(300, sd = 0.3), 100, 3)
 res <- emp - pred
 sim <- matrix(rnorm(300), 100, 3)
 vd <- new_var_data(emp, pred, res, sim, var_names = c("X1", "X2", "X3"))
+# \donttest{
 plot_var_check(vd)
+
+# }
 ```

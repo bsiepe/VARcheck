@@ -61,9 +61,12 @@ An object of class \`var_data\`.
 
 ``` r
 set.seed(1)
-emp <- matrix(rnorm(200), nrow = 100, ncol = 2)
-pred <- emp + matrix(rnorm(200, sd = 0.3), 100, 2)
+emp <- matrix(rnorm(75), nrow = 100, ncol = 2)
+#> Warning: data length [75] is not a sub-multiple or multiple of the number of rows [100]
+pred <- emp + matrix(rnorm(75, sd = 0.3), 100, 2)
+#> Warning: data length [75] is not a sub-multiple or multiple of the number of rows [100]
 res <- emp - pred
-sim <- matrix(rnorm(200), 100, 2)
+sim <- matrix(rnorm(75), 100, 2)
+#> Warning: data length [75] is not a sub-multiple or multiple of the number of rows [100]
 vd <- new_var_data(emp, pred, res, sim, var_names = c("Mood", "Energy"))
 ```
