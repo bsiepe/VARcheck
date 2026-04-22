@@ -1,5 +1,10 @@
 # VARcheck
 
+<!-- badges: start -->
+[![Codecov test coverage](https://codecov.io/gh/bsiepe/VARcheck/graph/badge.svg)](https://app.codecov.io/gh/bsiepe/VARcheck)
+[![R-CMD-check](https://github.com/bsiepe/VARcheck/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/bsiepe/VARcheck/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
 VARcheck produces diagnostic grids for vector autoregressive (VAR) models. Given your model's empirical data, predictions, and residuals, it assembles a multi-panel figure that makes the quality of the fit visible.
 
 The package is model-agnostic: it works with any VAR implementation (mlVAR, vars, DSEM, custom code) as long as you can supply a matrix of empirical values, a matrix of predictions, and a matrix of residuals.
