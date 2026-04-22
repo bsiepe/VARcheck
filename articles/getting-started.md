@@ -209,15 +209,16 @@ sim_out <- mlVAR:::resimulate(mlVAR_out, keep_missing = TRUE,
 
 ``` r
 i <- 1  # subject index
+unique_ids <- unique(data$id)
 
-vd <- new_var_data(
-  empirical = as.matrix(data[data$id == u_ptp[i], vars]),
-  predicted = as.matrix(pred_df[pred_df$id == u_ptp[i], vars]),
-  residuals = as.matrix(res_df[res_df$id == u_ptp[i], vars]),
-  simulated = as.matrix(sim_out[sim_out$id == u_ptp[i], vars])
+check_df <- new_var_data(
+  empirical = as.matrix(data[data$id == unique_ids[i], vars]),
+  predicted = as.matrix(pred_df[pred_df$id == unique_ids[i], vars]),
+  residuals = as.matrix(res_df[res_df$id == unique_ids[i], vars]),
+  simulated = as.matrix(sim_out[sim_out$id == unique_ids[i], vars])
 )
 
-plot_var_check(vd)
+plot_var_check(check_df)
 ```
 
 **All subjects**
@@ -227,14 +228,14 @@ with `subject = i`.
 
 ``` r
 vars     <- c("A", "B", "C", "D")
-n_subj   <- length(u_ptp)
+n_subj   <- length(unique_ids)
 
-vd_all <- new_var_data(
-  empirical = lapply(u_ptp, \(id) as.matrix(data[data$id == id, vars])),
-  predicted = lapply(u_ptp, \(id) as.matrix(pred_df[pred_df$id == id, vars])),
-  residuals = lapply(u_ptp, \(id) as.matrix(res_df[res_df$id == id, vars])),
-  simulated = lapply(u_ptp, \(id) as.matrix(sim_out[sim_out$id == id, vars]))
+check_df_all <- new_var_data(
+  empirical = lapply(unique_ids, \(id) as.matrix(data[data$id == id, vars])),
+  predicted = lapply(unique_ids, \(id) as.matrix(pred_df[pred_df$id == id, vars])),
+  residuals = lapply(unique_ids, \(id) as.matrix(res_df[res_df$id == id, vars])),
+  simulated = lapply(unique_ids, \(id) as.matrix(sim_out[sim_out$id == id, vars]))
 )
 
-plot_var_check(vd_all, subject = 3)
+plot_var_check(check_df_all, subject = 3)
 ```
