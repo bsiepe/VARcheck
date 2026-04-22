@@ -23,7 +23,7 @@ Description: Provides model-agnostic visual diagnostics for vector
     inspection, residuals vs. predictions scatter, and posterior predictive style
     checks via simulated trajectories. Output is a 'patchwork' object composed
     of 'ggplot2' plots, allowing further customisation via standard
-    'ggplot2' theme calls. Follows the approach described in
+    'ggplot2' theme calls. Follows the approach described in 
     Haslbeck et al. (2026) <doi:10.31234/osf.io/k6uz4>.
 License: MIT + file LICENSE
 Encoding: UTF-8

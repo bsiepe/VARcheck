@@ -84,4 +84,6 @@ The default theme is `theme_varcheck()`, which is a minimal ggplot2 theme you ca
 
 ## Reference
 
-Haslbeck, J. M. B. et al. (2026). *Model Checking for Vector Autoregressive Models* <https://doi.org/10.31234/osf.io/k6uz4_v2>
+Please cite the following paper when using this package:
+
+Haslbeck, J. M. B. et al. (2026). *Model Checking for Vector Autoregressive Models* <https://doi.org/10.31234/osf.io/k6uz4>
