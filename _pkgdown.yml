@@ -2,6 +2,11 @@ url: https://bsiepe.github.io/VARcheck/
 
 template:
   bootstrap: 5
+  light-switch: true
+  bslib:
+    base_font: {google: "Roboto"}
+    heading_font: {google: "Roboto Slab"}
+    code_font: {google: "JetBrains Mono"}
 
 home:
   title: VARcheck
