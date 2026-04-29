@@ -15,7 +15,7 @@ home:
 navbar:
   structure:
     left: [intro, reference, articles]
-    right: [github]
+    right: [github, lightswitch]
 
 articles:
 - title: ~
