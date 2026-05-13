@@ -39,6 +39,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="articles/getting-started.html">Getting started</a></li>
+    <li><a class="dropdown-item" href="articles/example-analyses.html">Example analyses</a></li>
   </ul>
 </li>
       </ul>
@@ -66,7 +67,7 @@
 
 <p>VARcheck produces diagnostic grids for vector autoregressive (VAR) models. Given your model’s empirical data, predictions, and residuals, it assembles a multi-panel figure that makes the quality of the fit visible.</p>
 <p>The package is model-agnostic: it works with any VAR implementation (mlVAR, vars, DSEM, custom code) as long as you can supply a matrix of empirical values, a matrix of predictions, and a matrix of residuals.</p>
-<p>For more information on how to use the package, see the extended documentation on the <a href="https://bsiepe.github.io/VARcheck/">package website</a>.</p>
+<p>The package website includes a <a href="https://bsiepe.github.io/VARcheck/articles/getting-started.html">getting started guide</a> with a full walkthrough, and an <a href="https://bsiepe.github.io/VARcheck/articles/example-analyses.html">example analyses vignette</a> that reproduces the simulated misfit examples from Haslbeck et al. (2026).</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -100,24 +101,24 @@
 <col width="47%">
 <col width="52%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th>Column</th>
 <th>Content</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Empirical &amp; Predicted</td>
 <td>Time series of observed vs. predicted values, annotated with R² and RMSE</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Residuals</td>
 <td>Residuals over time, annotated with AR(1) coefficient and 95% CI</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Residuals vs. Predicted</td>
 <td>Scatter of residuals against predictions</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Simulated</td>
 <td>Time series simulated from the fitted model</td>
 </tr>
@@ -158,7 +159,7 @@
 <h2 id="reference">Reference<a class="anchor" aria-label="anchor" href="#reference"></a>
 </h2>
 <p>Please cite the following paper when using this package:</p>
-<p>Haslbeck, J. M. B. et al. (2026). <em>Model Checking for Vector Autoregressive Models</em> <a href="https://doi.org/10.31234/osf.io/k6uz4" class="external-link uri">https://doi.org/10.31234/osf.io/k6uz4</a></p>
+<p>Haslbeck, J. M. B., Jongerling, J., Siepe, B. S., Epskamp, S., &amp; Waldorp, L. (2026). <em>Model Checking for Vector Autoregressive Models</em> <a href="https://doi.org/10.31234/osf.io/k6uz4_v3" class="external-link uri">https://doi.org/10.31234/osf.io/k6uz4_v3</a></p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">

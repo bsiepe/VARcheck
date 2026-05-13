@@ -8,6 +8,7 @@ into a structured plot.
 ## Setup
 
 ``` r
+
 library(VARcheck)
 set.seed(35032)
 ```
@@ -24,6 +25,7 @@ The example below simulates a simple two-variable VAR(1) process
 directly, without any modelling package.
 
 ``` r
+
 # Simulate a VAR(1) process
 T  <- 150
 p  <- 4
@@ -54,6 +56,7 @@ for (t in 2:T) {
 ```
 
 ``` r
+
 vd <- new_var_data(
   empirical  = emp,
   predicted  = pred,
@@ -79,6 +82,7 @@ it can be printed, saved with
 or combined with other plots.
 
 ``` r
+
 plot_var_check(vd)
 ```
 
@@ -101,6 +105,7 @@ Each row shows one variable. The columns are:
 Show only a subset of variables by name or index:
 
 ``` r
+
 plot_var_check(vd, vars = c("Mood", "Fatigue"))
 ```
 
@@ -109,6 +114,7 @@ plot_var_check(vd, vars = c("Mood", "Fatigue"))
 Drop columns you do not need. The layout adjusts automatically:
 
 ``` r
+
 plot_var_check(vd, panels = c("data", "residuals"))
 ```
 
@@ -122,6 +128,7 @@ subject) to
 Use the `subject` argument to choose which one to plot.
 
 ``` r
+
 emp2  <- emp + matrix(rnorm(T * p, sd = 0.2), T, p)
 pred2 <- pred + matrix(rnorm(T * p, sd = 0.1), T, p)
 res2  <- emp2 - pred2
@@ -145,6 +152,7 @@ plot_var_check(vd_multi, subject = 2)
 Unspecified keys retain their defaults.
 
 ``` r
+
 plot_var_check(vd, colors = list(predicted = "steelblue4"))
 ```
 
@@ -157,6 +165,7 @@ Add any
 call on top of it via the `theme` argument.
 
 ``` r
+
 plot_var_check(
   vd,
   theme = ggplot2::theme(
@@ -173,6 +182,7 @@ variables. Override them when comparing across subjects or model
 variants.
 
 ``` r
+
 plot_var_check(vd, ylim_data = c(-3, 3), ylim_res = c(-2, 2))
 ```
 
@@ -193,6 +203,7 @@ requires numeric matrices, so call
 Assume you have already run:
 
 ``` r
+
 library(mlVAR)
 
 mlVAR_out <- mlVAR(data, vars = c("A", "B", "C", "D"),
@@ -208,6 +219,7 @@ sim_out <- mlVAR:::resimulate(mlVAR_out, keep_missing = TRUE,
 **Single subject**
 
 ``` r
+
 i <- 1  # subject index
 unique_ids <- unique(data$id)
 
@@ -227,6 +239,7 @@ Pass a list of matrices (one per subject) to plot any individual later
 with `subject = i`.
 
 ``` r
+
 vars     <- c("A", "B", "C", "D")
 n_subj   <- length(unique_ids)
 
@@ -239,3 +252,9 @@ check_df_all <- new_var_data(
 
 plot_var_check(check_df_all, subject = 3)
 ```
+
+## Reference
+
+Haslbeck, J. M. B., Jongerling, J., Siepe, B. S., Epskamp, S., &
+Waldorp, L. (2026). *Model Checking for Vector Autoregressive Models*
+<https://doi.org/10.31234/osf.io/k6uz4_v3>

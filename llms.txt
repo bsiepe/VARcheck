@@ -9,21 +9,26 @@ The package is model-agnostic: it works with any VAR implementation
 (mlVAR, vars, DSEM, custom code) as long as you can supply a matrix of
 empirical values, a matrix of predictions, and a matrix of residuals.
 
-For more information on how to use the package, see the extended
-documentation on the [package
-website](https://bsiepe.github.io/VARcheck/).
+The package website includes a [getting started
+guide](https://bsiepe.github.io/VARcheck/articles/getting-started.html)
+with a full walkthrough, and an [example analyses
+vignette](https://bsiepe.github.io/VARcheck/articles/example-analyses.html)
+that reproduces the simulated misfit examples from Haslbeck et
+al. (2026).
 
 ## Installation
 
 Install the released version from CRAN:
 
 ``` r
+
 install.packages("VARcheck")
 ```
 
 Or install the development version from GitHub:
 
 ``` r
+
 # install.packages("devtools")
 devtools::install_github("bsiepe/VARcheck")
 ```
@@ -36,6 +41,7 @@ We provide a longer instruction in the package vignette, but the basic
 workflow looks like this:
 
 ``` r
+
 library(VARcheck)
 
 vd <- new_var_data(
@@ -52,12 +58,12 @@ plot_var_check(vd)
 Each row of the output corresponds to one variable and contains four
 column groups:
 
-| Column                  | Content                                                                  |
-|-------------------------|--------------------------------------------------------------------------|
-| Empirical & Predicted   | Time series of observed vs. predicted values, annotated with R² and RMSE |
-| Residuals               | Residuals over time, annotated with AR(1) coefficient and 95% CI         |
-| Residuals vs. Predicted | Scatter of residuals against predictions                                 |
-| Simulated               | Time series simulated from the fitted model                              |
+| Column | Content |
+|----|----|
+| Empirical & Predicted | Time series of observed vs. predicted values, annotated with R² and RMSE |
+| Residuals | Residuals over time, annotated with AR(1) coefficient and 95% CI |
+| Residuals vs. Predicted | Scatter of residuals against predictions |
+| Simulated | Time series simulated from the fitted model |
 
 Marginal histograms with a Gaussian overlay appear next to each
 time-series panel.
@@ -67,6 +73,7 @@ time-series panel.
 **Select variables or panels**
 
 ``` r
+
 # Show only two variables
 plot_var_check(vd, vars = c("Mood", "Energy"))
 
@@ -81,6 +88,7 @@ Pass a list of matrices (one per subject) to
 Use the `subject` argument to select which one to plot.
 
 ``` r
+
 vd_multi <- new_var_data(
   empirical = list(emp_s1, emp_s2, emp_s3),
   predicted = list(pred_s1, pred_s2, pred_s3),
@@ -93,6 +101,7 @@ plot_var_check(vd_multi, subject = 2)
 **Colours and theme**
 
 ``` r
+
 # Change line colours (partial override merges with defaults)
 plot_var_check(vd, colors = list(predicted = "steelblue"))
 
@@ -108,8 +117,9 @@ which is a minimal ggplot2 theme you can use on its own.
 
 Please cite the following paper when using this package:
 
-Haslbeck, J. M. B. et al. (2026). *Model Checking for Vector
-Autoregressive Models* <https://doi.org/10.31234/osf.io/k6uz4>
+Haslbeck, J. M. B., Jongerling, J., Siepe, B. S., Epskamp, S., &
+Waldorp, L. (2026). *Model Checking for Vector Autoregressive Models*
+<https://doi.org/10.31234/osf.io/k6uz4_v3>
 
 # Package index
 
