@@ -204,3 +204,8 @@ check_df_all <- new_var_data(
 
 plot_var_check(check_df_all, subject = 3)
 ```
+
+
+## Reference
+
+Haslbeck, J. M. B., Jongerling, J., Siepe, B. S., Epskamp, S., & Waldorp, L. (2026). *Model Checking for Vector Autoregressive Models* <https://doi.org/10.31234/osf.io/k6uz4_v3>

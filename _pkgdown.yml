@@ -22,6 +22,7 @@ articles:
   navbar: ~
   contents:
   - getting-started
+  - example-analyses
 
 reference:
 - title: Data

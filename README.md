@@ -9,7 +9,7 @@ VARcheck produces diagnostic grids for vector autoregressive (VAR) models. Given
 
 The package is model-agnostic: it works with any VAR implementation (mlVAR, vars, DSEM, custom code) as long as you can supply a matrix of empirical values, a matrix of predictions, and a matrix of residuals.
 
-For more information on how to use the package, see the extended documentation on the [package website](https://bsiepe.github.io/VARcheck/). 
+The package website includes a [getting started guide](https://bsiepe.github.io/VARcheck/articles/getting-started.html) with a full walkthrough, and an [example analyses vignette](https://bsiepe.github.io/VARcheck/articles/example-analyses.html) that reproduces the simulated misfit examples from Haslbeck et al. (2026).
 
 ## Installation
 
@@ -97,4 +97,4 @@ The default theme is `theme_varcheck()`, which is a minimal ggplot2 theme you ca
 
 Please cite the following paper when using this package:
 
-Haslbeck, J. M. B. et al. (2026). *Model Checking for Vector Autoregressive Models* <https://doi.org/10.31234/osf.io/k6uz4>
+Haslbeck, J. M. B., Jongerling, J., Siepe, B. S., Epskamp, S., & Waldorp, L. (2026). *Model Checking for Vector Autoregressive Models* <https://doi.org/10.31234/osf.io/k6uz4_v3>
