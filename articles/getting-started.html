@@ -92,7 +92,7 @@ data, model predictions, and residuals), each as a <code>T × p</code>
 numeric matrix (time points × variables). Simulated data for posterior
 predictive checks is optional but enables the rightmost column of the
 diagnostic grid.</p>
-<p>The example below simulates a simple two-variable VAR(1) process
+<p>The example below simulates a simple four-variable VAR(1) process
 directly, without any modelling package.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Simulate a VAR(1) process</span></span>
@@ -241,6 +241,8 @@ frame.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">mlVAR</span><span class="op">)</span></span>
 <span></span>
+<span><span class="va">vars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span><span class="op">)</span></span>
+<span></span>
 <span><span class="va">mlVAR_out</span> <span class="op">&lt;-</span> <span class="fu">mlVAR</span><span class="op">(</span><span class="va">data</span>, vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span><span class="op">)</span>,</span>
 <span>                   idvar <span class="op">=</span> <span class="st">"id"</span>, lags <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>                   dayvar <span class="op">=</span> <span class="st">"day"</span>, beepvar <span class="op">=</span> <span class="st">"beep"</span><span class="op">)</span></span>
@@ -266,8 +268,7 @@ frame.</p>
 <p>Pass a list of matrices (one per subject) to plot any individual
 later with <code>subject = i</code>.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">vars</span>     <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span><span class="op">)</span></span>
-<span><span class="va">n_subj</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">unique_ids</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">n_subj</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">unique_ids</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">check_df_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/new_var_data.html">new_var_data</a></span><span class="op">(</span></span>
 <span>  empirical <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">unique_ids</span>, \<span class="op">(</span><span class="va">id</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">data</span><span class="op">[</span><span class="va">data</span><span class="op">$</span><span class="va">id</span> <span class="op">==</span> <span class="va">id</span>, <span class="va">vars</span><span class="op">]</span><span class="op">)</span><span class="op">)</span>,</span>

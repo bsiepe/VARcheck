@@ -194,7 +194,7 @@ plot annotation.</p>
 <p><img src="example-analyses_files/figure-html/correct-1.png" class="r-plt" alt="" width="100%"></p>
 <p>Both models are correctly specified. Empirical and predicted values
 track closely for the first case, R² is substantial for the
-autoregressive case and near zero for the white-noise case — as
+autoregressive case and near zero for the white-noise case. This can be
 expected, since an AR(1) model cannot improve on the mean when the true
 autocorrelation is zero. The predictions in the second case are close to
 zero. The estimate of the autocorrelation is close to its true value of
@@ -207,11 +207,11 @@ empirical data.</p>
 <div class="section level2">
 <h2 id="main-misspecifications">Main misspecifications<a class="anchor" aria-label="anchor" href="#main-misspecifications"></a>
 </h2>
-<p>We first combine the three most common misspecifications into a
-single plot to show how they differ from the correctly specified cases.
-Each of these misspecifications violates a different assumption of the
-AR(1) model, and therefore produces a distinct pattern in the diagnostic
-grid.</p>
+<p>We first combine the three of the most commonly known
+misspecifications into a single plot to show how they differ from the
+correctly specified cases. Each of these misspecifications violates a
+different assumption of the AR(1) model, and therefore produces a
+distinct pattern in the diagnostic grid.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">vd_main</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/new_var_data.html">new_var_data</a></span><span class="op">(</span></span>
 <span>  empirical <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">x4</span>, <span class="va">x3</span>, <span class="va">x5</span><span class="op">)</span>,</span>
@@ -224,25 +224,26 @@ grid.</p>
 <span><span class="fu"><a href="../reference/plot_var_check.html">plot_var_check</a></span><span class="op">(</span><span class="va">vd_main</span><span class="op">)</span></span></code></pre></div>
 <p><img src="example-analyses_files/figure-html/misspec-main-1.png" class="r-plt" alt="" width="100%"></p>
 <p><strong>Switching.</strong> The data alternates between two discrete
-levels. The AR(1) model tracks the average of each state but fails at
-transitions, producing large residual spikes. The residual histogram is
-clearly bimodal — a strong departure from the Gaussian overlay. The
-scatter plot reveals two clusters offset from the origin. Simulated data
-is unimodal and continuous, unlike the step-function empirical
-series.</p>
+levels. The AR(1) model tracks each state reasonably well but fails at
+transitions, producing large residual spikes. The residual distribution
+departs from the Gaussian overlay mainly through these extreme values,
+while the scatter plot shows a distinctly non-linear structure.
+Simulated data is highly autocorrelated but does not reproduce the
+switching behavior.</p>
 <p><strong>Trend.</strong> A linear trend is present in the empirical
-series but lies outside the AR(1)’s stationary framework. The residual
-panel shows a systematic drift over time rather than noise. The AR(1)
-coefficient of the residuals is notably elevated, and the simulated
-trajectory shows no trend — making the mismatch between simulated and
-empirical immediately apparent.</p>
+series but lies outside the AR(1)’s stationary framework. The model
+still predicts one step ahead very well, so the misfit is easy to miss
+if one focuses only on prediction error. The clearest signal comes from
+the simulated trajectory, which shows a highly autocorrelated process
+that does not follow the observed trend at all.</p>
 <p><strong>Heteroscedasticity.</strong> Innovation variance grows over
 time. Early time points are well fitted but the model underestimates
 variability later in the series. The residual panel shows a widening
-spread from left to right. The scatter plot reflects a funnel shape,
-with larger absolute residuals at larger predicted values. Simulated
-data has approximately constant variance and therefore does not match
-the empirical series in spread.</p>
+spread from left to right, whereas the residuals-versus-predictions plot
+is less informative here because the misspecification concerns variance
+over time rather than the mean structure. Simulated data has high
+overall variance but does not reproduce the systematic increase in
+spread.</p>
 </div>
 <div class="section level2">
 <h2 id="additional-misspecifications">Additional misspecifications<a class="anchor" aria-label="anchor" href="#additional-misspecifications"></a>
@@ -260,9 +261,11 @@ the empirical series in spread.</p>
 <span><span class="fu"><a href="../reference/plot_var_check.html">plot_var_check</a></span><span class="op">(</span><span class="va">vd_extra</span><span class="op">)</span></span></code></pre></div>
 <p><img src="example-analyses_files/figure-html/misspec-extra-1.png" class="r-plt" alt="" width="100%"></p>
 <p><strong>Seasonality.</strong> A weekend effect shifts the mean every
-seven time points. The residual panel shows regular spikes corresponding
-to this weekly rhythm. The AR(1) annotation captures elevated residual
-autocorrelation driven by the unmodelled seasonal structure.</p>
+seven time points. The resulting regular pattern is visible in the
+residuals, but this type of misspecification is subtler than the
+previous ones. The simulated panel is often the clearest cue because the
+simulated series looks less regular than the empirical one, but even in
+this plot, this misspecification is hard to detect.</p>
 <p><strong>State-dependent innovations.</strong> Innovation variance
 scales with the current value of the process. The scatter plot shows a
 characteristic funnel pattern: residuals fan out as predicted values
@@ -271,7 +274,7 @@ is violated.</p>
 <p><strong>Non-Gaussian innovations.</strong> The process uses
 exponential innovations, producing a right-skewed marginal distribution.
 The residual histogram deviates clearly from the Gaussian overlay, with
-a pronounced right tail. Simulated data, drawn from a Gaussian model, is
+a pronounced tail. Simulated data, drawn from a Gaussian model, is
 symmetric and does not match the skewed empirical distribution.</p>
 </div>
 <div class="section level2">

@@ -21,7 +21,7 @@ residuals), each as a `T × p` numeric matrix (time points × variables).
 Simulated data for posterior predictive checks is optional but enables
 the rightmost column of the diagnostic grid.
 
-The example below simulates a simple two-variable VAR(1) process
+The example below simulates a simple four-variable VAR(1) process
 directly, without any modelling package.
 
 ``` r
@@ -206,6 +206,8 @@ Assume you have already run:
 
 library(mlVAR)
 
+vars <- c("A", "B", "C", "D")
+
 mlVAR_out <- mlVAR(data, vars = c("A", "B", "C", "D"),
                    idvar = "id", lags = 1,
                    dayvar = "day", beepvar = "beep")
@@ -240,7 +242,6 @@ with `subject = i`.
 
 ``` r
 
-vars     <- c("A", "B", "C", "D")
 n_subj   <- length(unique_ids)
 
 check_df_all <- new_var_data(
