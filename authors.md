@@ -15,12 +15,12 @@ Source:
 
 Haslbeck J, Jongerling J, Siepe B, Epskamp S, Waldorp L (2026). “Model
 Checking for Vector Autoregressive Models.” *PsyArXiv*.
-[doi:10.31234/osf.io/k6uz4](https://doi.org/10.31234/osf.io/k6uz4).
+[doi:10.31234/osf.io/k6uz4_v3](https://doi.org/10.31234/osf.io/k6uz4_v3).
 
     @Article{,
       title = {Model Checking for Vector Autoregressive Models},
       author = {Jonas M. B. Haslbeck and Joran Jongerling and Björn S. Siepe and Sacha Epskamp and Lourens Waldorp},
       journal = {PsyArXiv},
       year = {2026},
-      doi = {10.31234/osf.io/k6uz4},
+      doi = {10.31234/osf.io/k6uz4_v3},
     }
