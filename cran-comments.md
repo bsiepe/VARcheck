@@ -1,9 +1,14 @@
 # CRAN submission — VARcheck 0.1.0
 
+This is the first submission of this package. 
+
 ## Test environments
 
-- Local: Windows 11, R 4.5.2
-- R-hub / win-builder: R-devel (to be added before submission)
+
+* Rhub (ubuntu-next, ubuntu-release, windows-latest, m1-san)
+* GitHub Actions (CI): macos-latest, windows-latest,
+  Ubuntu-latest (R devel, release, and oldrel-1)
+* Local: Windows 11, R 4.5.2
 
 ## R CMD check results
 
@@ -11,7 +16,7 @@
 
 ## DOI note
 
-The DOI in the Description field (`doi:10.31234/osf.io/k6uz4_v2`) points to
+The DOI in the Description field (`doi:10.31234/osf.io/k6uz4_v3`) points to
 an OSF preprint. It resolves correctly but redirects via the OSF DOI resolver
 before reaching the final URL. This is expected behaviour for OSF-hosted
 preprints and not an error.
