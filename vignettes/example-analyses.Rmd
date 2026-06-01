@@ -23,6 +23,7 @@ This vignette reproduces the simulated examples from Haslbeck et al. (2026), whi
 
 ```{r packages}
 library(VARcheck)
+set.seed(35032)
 ```
 
 ## Helper functions
