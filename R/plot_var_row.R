@@ -22,7 +22,7 @@
   }
 
   if ("scatter" %in% panels) {
-    out$scatter <- .panel_scatter(df, base_theme, xlim = ylim_res, ylim = ylim_data)
+    out$scatter <- .panel_scatter(df, base_theme, xlim = ylim_data, ylim = ylim_res)
   }
 
   if ("simulated" %in% panels) {

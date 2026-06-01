@@ -93,10 +93,10 @@
 }
 
 .panel_scatter <- function(df, base_theme, xlim, ylim) {
-  ggplot2::ggplot(df, ggplot2::aes(x = res, y = pred)) +
+  ggplot2::ggplot(df, ggplot2::aes(x = pred, y = res)) +
     ggplot2::geom_point(alpha = 0.4, size = 0.8, na.rm = TRUE) +
     ggplot2::coord_cartesian(xlim = xlim, ylim = ylim) +
-    ggplot2::labs(x = "Residuals", y = "Predictions") +
+    ggplot2::labs(x = "Predictions", y = "Residuals") +
     base_theme +
     ggplot2::theme(
       axis.title.x = ggplot2::element_text(),
