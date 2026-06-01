@@ -9,6 +9,7 @@ misspecified.
 ``` r
 
 library(VARcheck)
+set.seed(35032)
 ```
 
 ## Helper functions
