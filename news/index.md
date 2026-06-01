@@ -2,6 +2,8 @@
 
 ## VARcheck 0.1.0
 
+CRAN release: 2026-05-19
+
 - Initial CRAN release.
 - [`new_var_data()`](https://bsiepe.github.io/VARcheck/reference/new_var_data.md):
   constructs a model-agnostic `var_data` object from empirical data,
