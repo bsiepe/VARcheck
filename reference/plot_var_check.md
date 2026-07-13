@@ -18,7 +18,8 @@ plot_var_check(
   colors = list(),
   theme = NULL,
   ylim_data = NULL,
-  ylim_res = NULL
+  ylim_res = NULL,
+  title = NULL
 )
 ```
 
@@ -64,6 +65,12 @@ plot_var_check(
 
   Numeric vector of length 2. Shared y-limits for the residual panels.
   Auto-computed from the residuals if \`NULL\`.
+
+- title:
+
+  Optional character string added as an overall plot title via
+  \[patchwork::plot_annotation()\]. Useful when calling
+  \`plot_var_check()\` in a loop over subjects.
 
 ## Value
 

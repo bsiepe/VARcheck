@@ -15,7 +15,7 @@ panel is accompanied by a marginal histogram with a Gaussian overlay."></head><b
 
     <a class="navbar-brand me-2" href="../index.html">VARcheck</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,7 +67,8 @@ panel is accompanied by a marginal histogram with a Gaussian overlay.</p>
 <span>  colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  theme <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  ylim_data <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  ylim_res <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  ylim_res <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  title <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -115,6 +116,12 @@ the data if `NULL`.</p></dd>
 <dd><p>Numeric vector of length 2. Shared y-limits for the
 residual panels. Auto-computed from the residuals if `NULL`.</p></dd>
 
+
+<dt id="arg-title">title<a class="anchor" aria-label="anchor" href="#arg-title"></a></dt>
+<dd><p>Optional character string added as an overall plot title via
+[patchwork::plot_annotation()]. Useful when calling `plot_var_check()`
+in a loop over subjects.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -144,7 +151,7 @@ residual panels. Auto-computed from the residuals if `NULL`.</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>
