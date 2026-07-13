@@ -63,6 +63,9 @@
 #'   the data if `NULL`.
 #' @param ylim_res Numeric vector of length 2. Shared y-limits for the
 #'   residual panels. Auto-computed from the residuals if `NULL`.
+#' @param title Optional character string added as an overall plot title via
+#'   [patchwork::plot_annotation()]. Useful when calling `plot_var_check()`
+#'   in a loop over subjects.
 #'
 #' @return A `patchwork` object.
 #' @export
@@ -85,7 +88,8 @@ plot_var_check <- function(
     colors = list(),
     theme = NULL,
     ylim_data = NULL,
-    ylim_res = NULL) {
+    ylim_res = NULL,
+    title = NULL) {
   if (!inherits(data, "var_data")) {
     stop(
       "`data` must be a `var_data` object. See `new_var_data()`.",
@@ -93,7 +97,7 @@ plot_var_check <- function(
     )
   }
   if (!is.numeric(subject) || length(subject) != 1 ||
-    subject < 1 || subject > data$n_subjects) {
+      subject < 1 || subject > data$n_subjects) {
     stop(
       "`subject` must be a single integer between 1 and ",
       data$n_subjects, ".",
@@ -173,7 +177,8 @@ plot_var_check <- function(
   # The header row has one label per column group. Panels with a histogram
   # sub-panel (data, residuals, simulated) also get a trailing spacer so the
   # label spans only the main plot, not the histogram
-  header_plots <- list(patchwork::plot_spacer()) # placeholder for row-label column
+  # placeholder for row-label column
+  header_plots <- list(patchwork::plot_spacer())
   for (p in panels) {
     header_plots <- c(header_plots, list(.label_plot(.col_labels[[p]])))
     if (p != "scatter") {
@@ -211,6 +216,9 @@ plot_var_check <- function(
 
   # --- Stack header + data rows ---
   heights <- c(0.5, rep(4, n_vars))
-  Reduce(`/`, c(list(assembled_header), assembled_rows)) +
+  p <- Reduce(`/`, c(list(assembled_header), assembled_rows)) +
     patchwork::plot_layout(heights = heights)
+
+  if (!is.null(title)) p <- p + patchwork::plot_annotation(title = title)
+  p
 }

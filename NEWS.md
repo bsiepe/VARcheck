@@ -1,3 +1,12 @@
+# VARcheck 0.1.1
+
+* Fixed axis orientation in the scatter panel: predictions are now on the
+  x-axis and residuals on the y-axis, consistent with the other panels and
+  the conventional residuals-vs-predictions plot.
+* Added `set.seed()` to the example-analyses vignette for reproducibility.
+* `plot_var_check()` gains a `title` argument for adding an overall plot
+  title, useful when calling the function in a loop over subjects.
+
 # VARcheck 0.1.0
 
 * Initial CRAN release.

@@ -80,6 +80,11 @@ test_that("error when simulated panel requested but data missing", {
   )
 })
 
+test_that("title argument is accepted", {
+  p <- plot_var_check(make_vd(), title = "Subject 1")
+  expect_s3_class(p, "patchwork")
+})
+
 test_that("error when data is not var_data", {
   expect_error(plot_var_check(list(a = 1)), "var_data")
 })

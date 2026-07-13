@@ -1,6 +1,7 @@
-# CRAN submission — VARcheck 0.1.0
+# CRAN submission — VARcheck 0.1.1
 
-This is the first submission of this package. 
+This is a patch update to fix a bug in the scatter diagnostic panel and
+improve vignette reproducibility.
 
 ## Test environments
 

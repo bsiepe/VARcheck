@@ -12,7 +12,8 @@ plot_var_check(
   colors = list(),
   theme = NULL,
   ylim_data = NULL,
-  ylim_res = NULL
+  ylim_res = NULL,
+  title = NULL
 )
 }
 \arguments{
@@ -40,6 +41,10 @@ the data if `NULL`.}
 
 \item{ylim_res}{Numeric vector of length 2. Shared y-limits for the
 residual panels. Auto-computed from the residuals if `NULL`.}
+
+\item{title}{Optional character string added as an overall plot title via
+[patchwork::plot_annotation()]. Useful when calling `plot_var_check()`
+in a loop over subjects.}
 }
 \value{
 A `patchwork` object.

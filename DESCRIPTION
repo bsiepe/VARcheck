@@ -1,7 +1,7 @@
 Package: VARcheck
 Type: Package
 Title: Visual Diagnostic Checks for Vector Autoregressive Models
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(
     person(
       "Björn S.", "Siepe",
